@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 
 def request(url):
@@ -56,4 +57,6 @@ whey_price = []
 scrape_supplementhub(whey_price)
 scrape_wheyking(whey_price)
 scrape_ffsupplements(whey_price)
-write_csv(whey_price, 'whey_price.csv')
+
+date = datetime.now().strftime("%Y-%m-%d")
+write_csv(whey_price, f'whey_price_{date}.csv')
